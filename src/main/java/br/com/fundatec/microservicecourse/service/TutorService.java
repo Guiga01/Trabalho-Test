@@ -22,7 +22,7 @@ public class TutorService {
     public Tutor findByNome(String nome) {
         Optional<Tutor> resultado = tutorRepository.findByNome(nome);
 
-        if (resultado.isEmpty()) {
+        if (!resultado.isPresent()) {
             throw new NotFoundException("Tutor was not found");
         }
 
